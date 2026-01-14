@@ -32,7 +32,7 @@ public sealed class BindingOptions
     /// populating this cache with source generated data will eliminate expression compilations during runtime as well as usage of
     /// reflection based property setters, etc. see the source generator documentation on how to populate this cache with generated data.
     /// </summary>
-    public ReflectionCache ReflectionCache { get; } = new();
+    public ReflectionCache ReflectionCache { get; set; } = new();
 
     /// <summary>
     /// a function used to construct the failure message when a supplied value cannot be successfully bound to a dto property during model binding.
