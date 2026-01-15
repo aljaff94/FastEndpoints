@@ -51,7 +51,7 @@ public abstract class EndpointWithMapper<TRequest, TMapper> : Endpoint<TRequest,
 /// <typeparam name="TRequest">the type of the request dto</typeparam>
 /// <typeparam name="TResponse">the type of the response dto</typeparam>
 [UsedImplicitly(ImplicitUseTargetFlags.WithInheritors)]
-public abstract partial class Endpoint<TRequest, TResponse> : BaseEndpoint, IEventBus, IServiceResolverBase where TRequest : notnull
+public abstract partial class Endpoint<TRequest, TResponse> : FastEndpointsBaseEndpoint, IEventBus, IServiceResolverBase where TRequest : notnull
 {
     internal override async Task ExecAsync(CancellationToken ct)
     {

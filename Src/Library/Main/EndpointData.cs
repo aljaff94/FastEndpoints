@@ -135,7 +135,7 @@ sealed class EndpointData
                 {
                     switch (m.Name)
                     {
-                        case nameof(BaseEndpoint.Configure) when !m.IsDefined(Types.NotImplementedAttribute, false):
+                        case nameof(FastEndpointsBaseEndpoint.Configure) when !m.IsDefined(Types.NotImplementedAttribute, false):
                             implementsConfigure = true;
 
                             break;

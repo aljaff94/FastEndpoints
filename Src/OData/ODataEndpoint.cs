@@ -11,7 +11,7 @@ namespace FastEndpoints.OData;
 public abstract class ODataEndpoint<TEntity> : Endpoint<ODataQueryOptions<TEntity>, IQueryable>
 {
     /// <summary>
-    /// implement this method to configure this endpoint instead of the usual <see cref="BaseEndpoint.Configure" /> method.
+    /// implement this method to configure this endpoint instead of the usual <see cref="FastEndpointsBaseEndpoint.Configure" /> method.
     /// </summary>
     protected abstract void Setup();
 

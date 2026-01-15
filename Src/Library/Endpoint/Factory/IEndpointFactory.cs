@@ -12,5 +12,5 @@ public interface IEndpointFactory
     /// </summary>
     /// <param name="definition">the endpoint definition for the current request</param>
     /// <param name="ctx">the http context of the current request</param>
-    BaseEndpoint Create(EndpointDefinition definition, HttpContext ctx);
+    FastEndpointsBaseEndpoint Create(EndpointDefinition definition, HttpContext ctx);
 }

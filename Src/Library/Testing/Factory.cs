@@ -26,7 +26,7 @@ public static class Factory
         if (httpContext.RequestServices is null)
             httpContext.AddTestServices(_ => { });
 
-        BaseEndpoint ep;
+        FastEndpointsBaseEndpoint ep;
         var tEndpoint = typeof(TEndpoint);
 
         //because this is typically done by type discovery, and it doesn't run in unit tests.
@@ -39,13 +39,13 @@ public static class Factory
         };
 
         if (ctorDependencies.Length > 0)
-            ep = (BaseEndpoint)Activator.CreateInstance(tEndpoint, ctorDependencies)!; //ctor injection only
+            ep = (FastEndpointsBaseEndpoint)Activator.CreateInstance(tEndpoint, ctorDependencies)!; //ctor injection only
         else
             ep = _epFactory.Create(epDef, httpContext); //ctor & property injection
 
         //https://github.com/FastEndpoints/FastEndpoints/issues/569
         epDef.EndpointAttributes = epDef.EndpointType.GetCustomAttributes(true);
-        epDef.ImplementsConfigure = epDef.EndpointType.GetMethod(nameof(BaseEndpoint.Configure))?.IsDefined(Types.NotImplementedAttribute, false) is false;
+        epDef.ImplementsConfigure = epDef.EndpointType.GetMethod(nameof(FastEndpointsBaseEndpoint.Configure))?.IsDefined(Types.NotImplementedAttribute, false) is false;
 
         epDef.Initialize(ep, httpContext);
 

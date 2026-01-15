@@ -24,7 +24,7 @@ static partial class EndpointExtensions
     internal static string ActualTypeName(this Type type)
         => (Nullable.GetUnderlyingType(type) ?? type).Name;
 
-    internal static void Initialize(this EndpointDefinition def, BaseEndpoint instance, HttpContext? ctx)
+    internal static void Initialize(this EndpointDefinition def, FastEndpointsBaseEndpoint instance, HttpContext? ctx)
     {
         instance.Definition = def;
         instance.HttpContext = ctx!;
